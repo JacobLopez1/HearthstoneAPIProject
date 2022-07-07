@@ -1,0 +1,243 @@
+@font-face {
+    font-family: 'Belwe-Bold';
+    src: url('./assets/Belwe-Bold.eot');
+    src: url('./assets/Belwe-Bold.eot') format('embedded-opentype'),
+         url('./assets/Belwe-Bold.svg') format('svg'),
+         url('./assets/Belwe-Bold.ttf') format('truetype'),
+         url('./assets/Belwe-Bold.woff') format('woff'),
+         url('./assets/Belwe-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Belwe-Bold';
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.row {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.btn {
+    padding: 8px 16px;
+    font-weight: 700;
+    color: white;
+    background-image: -webkit-linear-gradient(left,#4c0d7a,#b921c4,#4c0d7a);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.btn:hover {
+    filter: brightness(0.8);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.link__hover-effect {
+    position: relative;
+}
+
+.link__hover-effect:after {
+    content: "";
+    background-color: black;
+    position: absolute;
+    bottom: -3px;
+    height: 3px;
+    width: 0;
+    right: 0;
+    transition: all 300ms ease;
+}
+
+.link__hover-effect:hover:after {
+    left: 0;
+    width: 100%;
+}
+
+/* 
+
+Navigation
+
+*/
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100px;
+}
+
+.nav__bg {
+    background-color: tan;
+    width: 100%;
+}
+
+.nav__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__link {
+    margin: 0 16px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.nav__link--anchor {
+    color: black;
+}
+
+.title {
+    padding-left: 8px;
+    padding-top: 2px;
+    color: black;
+}
+
+.logo--wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.divider {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 22px;
+    background-color: saddlebrown;
+    box-shadow: 0 10px 6px -7px rgb(0 0 0 / 50%);
+    z-index: 5;
+}
+/* 
+
+Header
+
+*/
+header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    filter: brightness(0.4);
+}
+
+.header__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    max-width: 500px;
+    padding: 10% 0;
+}
+
+.header__title {
+    margin: 24px;
+}
+
+.header__para {
+    margin-bottom: 16px;
+}
+
+/* 
+
+Highlights
+
+*/
+
+.highlights__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.highlight {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    height: 60vh;
+}
+
+.highlight__content {
+    position: absolute;
+    max-width: 500px;
+    transform: translateY(150%);
+    opacity: 0;
+    transition: all 300ms ease;
+}
+
+.highlight:hover .highlight__content{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.highlight:hover .highlight__img-1,
+.highlight:hover .highlight__img-2 {
+    filter: brightness(0.7);
+    transform: scale(1.07);
+}
+
+.highlight__title {
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    color: white;
+    font-size: 40px;
+    z-index: 2;
+}
+
+.highlight__sub-title {
+    color: lightgray;
+    padding: 16px;
+    text-align: center;
+}
+
+.highlight__img-1 {
+    height: 100%;
+    overflow: hidden;
+    transition: all 500ms ease;
+}
+
+.highlight__img-2 {
+    overflow: hidden;
+    height: 100%;
+    transition: all 500ms ease;
+}
