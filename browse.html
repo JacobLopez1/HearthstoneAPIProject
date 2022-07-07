@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/icon.png" />
+    <title>Tavern's Guide</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <div class="nav__bg">
+      <div class="row">
+        <nav>
+          <figure>
+            <a href="index.html" class="logo--wrapper">
+              <img src="./assets/icon.png" class="logo" alt="" />
+              <h1 class="title">Tavern's Guide</h1>
+            </a>
+          </figure>
+          <ul class="nav__links">
+            <li class="nav__link">
+              <a href="#" class="nav__link--anchor link__hover-effect"
+                >Random Card</a
+              >
+            </li>
+            <li class="nav__link">
+              <a href="#" class="nav__link--anchor link__hover-effect"
+                >Random List</a
+              >
+            </li>
+            <li class="nav__link--primary">
+              <button class="btn">Browse Cards</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <header class="header">
+        <img class="header__img" src="./assets/background.jpg" alt="" />
+        <div class="header__content">
+            <div class="card__search--container">
+                <label class="card__search--label">Search Cards</label>
+                <input type="text" placeholder="Search by card name, cost, type">
+            </div>
+        </div>
+    </header>
+    <div class="divider">
+    </div>
+    <div class="card__search--menu">
+        <div class="row">
+        <div class="filters">
+            <select id="filter-menu">
+                <option value disabled selected>Sort By</option>
+                <option value="MANA_LOW_TO_HIGH">Mana: Low to High</option>
+                <option value="MANA_HIGH_TO_LOW">Mana: High to Low</option>
+                <option value="NAME_A_TO_Z">Card Name: A to Z</option>
+                <option value="MANA_Z_TO_A">Card Name: Z to A</option>
+            </select>
+            <ul class="mana-cost">
+                <li class="">Mana Cost</li>
+                <li class="mana-symbol">
+                    <img src="./assets/crystal.png" alt="" class="crystal__img">
+                    <h2 class="mana-num">0</h1>
+                </li>
+                <li class="mana-symbol">
+                    <img src="./assets/crystal.png" alt="" class="crystal__img">
+                    <h2 class="mana-num">1</h1>
+                </li>
+                <li class="mana-symbol">
+                    <img src="./assets/crystal.png" alt="" class="crystal__img">
+                    <h2 class="mana-num">2</h1>
+                </li>
+                <li class="mana-symbol">
+                    <img src="./assets/crystal.png" alt="" class="crystal__img">
+                    <h2 class="mana-num">3</h1>
+                </li>
+                <li class="mana-symbol">
+                    <img src="./assets/crystal.png" alt="" class="crystal__img">
+                    <h2 class="mana-num">4</h1>
+                </li>
+                <li class="mana-symbol">
+                    <img src="./assets/crystal.png" alt="" class="crystal__img">
+                    <h2 class="mana-num">5</h1>
+                </li>
+                <li class="mana-symbol">
+                    <img src="./assets/crystal.png" alt="" class="crystal__img">
+                    <h2 class="mana-num">6</h1>
+                </li>
+                <li class="mana-symbol">
+                    <img src="./assets/crystal.png" alt="" class="crystal__img">
+                    <h2 class="mana-num crystal-seven">7+</h1>
+                </li>
+            </ul>
+            <select id="class-menu" onchange="getClassCards(event)">
+                <option value selected>All Classes</option>
+                <option value="druid">Druid</option>
+                <option value="mage">Mage</option>
+                <option value="paladin">Paladin</option>
+                <option value="rogue">Rogue</option>
+                <option value="warlock">Warlock</option>
+                <option value="warrior">Warrior</option>
+                <option value="priest">Priest</option>
+                <option value="shaman">Shaman</option>
+                <option value="hunter">Hunter</option>
+                <option value="demon-hunter">Demon Hunter</option>
+                <option value="neutral">Neutral</option>
+            </select>
+        </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="card__search--list"></div>
+    <footer>
+        <div class="row footer__row">
+          <figure>
+            <a href="#">
+              <img src="./assets/icon.png" alt="" class="footer__logo" />
+            </a>
+          </figure>
+          <ul class="footer__links">
+            <li class="footer__link">
+              <a href="#" class="no-cursor fl-color link__hover-effect">About</a>
+            </li>
+            <li class="footer__link">
+              <a href="#" class="no-cursor fl-color link__hover-effect">Support</a>
+            </li>
+            <li class="footer__link">
+              <a href="#" class="no-cursor fl-color link__hover-effect">Contact Us</a>
+            </li>
+            <li class="footer__link">
+              <a href="#" class="no-cursor fl-color link__hover-effect">Legal</a>
+            </li>
+          </ul>
+          <div class="copyright">Copyright &copy; 2022 Jacob Lopez</div>
+        </div>
+      </footer>
+  </body>
+</html>
