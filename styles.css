@@ -343,4 +343,10 @@ footer {
     .highlight__btn {
         font-size: 16px;
     }
+
+    .highlight:hover .highlight__img-1,
+    .highlight:hover .highlight__img-2 {
+        transform: scale(1);
+        filter: brightness(1);
+    }
 }
