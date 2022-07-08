@@ -42,7 +42,7 @@
         <div class="header__content">
             <div class="card__search--container">
                 <label class="card__search--label">Search Cards</label>
-                <input type="text" placeholder="Search by card name, cost, type">
+                <input type="text" placeholder="Search by exact card name" id="search-bar" onchange="searchChange(event)">
             </div>
         </div>
     </header>
@@ -64,6 +64,7 @@
                 <option value="fractured-in-alterac-valley">Fractured in Alterac Valley</option>
                 <option value="united-in-stormwind">United in Stormwind</option>
                 <option value="forged-in-the-barrens">Forged in the Barrens</option>
+                <option value="core">Core Set</option>
             </select>
             <select id="class-menu" onchange="classChange(event)">
                 <option value="NONE" selected>All Classes</option>
@@ -82,37 +83,41 @@
         </div>
         <ul class="mana-cost">
             <li class="">Mana Cost</li>
-            <li class="mana-symbol" onclick="manaChange(0)">
-                <img src="./assets/crystal.png" alt="" class="crystal__img">
+            <li class="mana-symbol" onclick="manaChange(0), toggleActive(1)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img not-active" id="1">
                 <h2 class="mana-num">0</h1>
             </li>
-            <li class="mana-symbol" onclick="manaChange(1)">
-                <img src="./assets/crystal.png" alt="" class="crystal__img">
+            <li class="mana-symbol" onclick="manaChange(1), toggleActive(2)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img not-active" id="2">
                 <h2 class="mana-num">1</h1>
             </li>
-            <li class="mana-symbol" onclick="manaChange(2)">
-                <img src="./assets/crystal.png" alt="" class="crystal__img">
+            <li class="mana-symbol" onclick="manaChange(2), toggleActive(3)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img not-active" id="3">
                 <h2 class="mana-num">2</h1>
             </li>
-            <li class="mana-symbol" onclick="manaChange(3)">
-                <img src="./assets/crystal.png" alt="" class="crystal__img">
+            <li class="mana-symbol" onclick="manaChange(3), toggleActive(4)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img not-active" id="4">
                 <h2 class="mana-num">3</h1>
             </li>
-            <li class="mana-symbol" onclick="manaChange(4)">
-                <img src="./assets/crystal.png" alt="" class="crystal__img">
+            <li class="mana-symbol" onclick="manaChange(4), toggleActive(5)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img not-active" id="5">
                 <h2 class="mana-num">4</h1>
             </li>
-            <li class="mana-symbol" onclick="manaChange(5)">
-                <img src="./assets/crystal.png" alt="" class="crystal__img">
+            <li class="mana-symbol" onclick="manaChange(5), toggleActive(6)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img not-active" id="6">
                 <h2 class="mana-num">5</h1>
             </li>
-            <li class="mana-symbol" onclick="manaChange(6)">
-                <img src="./assets/crystal.png" alt="" class="crystal__img">
+            <li class="mana-symbol" onclick="manaChange(6), toggleActive(7)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img not-active" id="7">
                 <h2 class="mana-num">6</h1>
             </li>
-            <li class="mana-symbol" onclick="manaChange('seven-up')">
-                <img src="./assets/crystal.png" alt="" class="crystal__img">
+            <li class="mana-symbol" onclick="manaChange('seven-up'), toggleActive(8)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img not-active" id="8">
                 <h2 class="mana-num crystal-seven">7+</h1>
+            </li>
+            <li class="mana-symbol" onclick="manaChange('NONE'), toggleActive('*')">
+                <img src="./assets/crystal.png" alt="" class="crystal__img" id="*">
+                <h2 class="mana-num crystal-all">All</h1>
             </li>
         </ul>
         </div>

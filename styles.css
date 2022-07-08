@@ -368,6 +368,14 @@ input {
     left: 16px;
 }
 
+.crystal-all {
+    left: 12px;
+}
+
+.not-active {
+    filter: brightness(0.5);
+}
+
 /* Card Display */
 
 .card__search--list {
