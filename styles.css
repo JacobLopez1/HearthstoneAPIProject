@@ -324,6 +324,7 @@ input {
 
 .filters {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 16px 0;
@@ -331,6 +332,7 @@ input {
 
 .mana-cost {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 8px 0;
