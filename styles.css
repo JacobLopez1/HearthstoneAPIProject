@@ -326,10 +326,12 @@ input {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 16px 0;
 }
 
 .mana-cost {
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: 8px 0;
 }
@@ -337,6 +339,16 @@ input {
 .mana-symbol {
     position: relative;
     padding: 0 8px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.mana-symbol:hover {
+    transform: scale(1.2);
+}
+
+.mana-symbol:active {
+    transform: scale(0.8);
 }
 
 .crystal__img {
@@ -354,6 +366,56 @@ input {
 
 .crystal-seven {
     left: 16px;
+}
+
+/* Card Display */
+
+.card__search--list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: tan;
+    padding: 40px 0;
+}
+
+.card__wrapper {
+    width: 240px;
+    margin: 16px;
+    height: 300px;
+    position: relative;
+}
+
+.card__wrapper:hover .card__img{
+    transform: scale(1.05);
+}
+
+.card__wrapper:hover .card__text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card__img {
+    width: 100%;
+    transition: all 300ms ease;
+}
+
+.card__text {
+    position: absolute;
+    background: tan;
+    border: 2px solid saddlebrown;
+    padding: 4px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    top: 50%;
+    right: 32px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 300ms ease
 }
 
 

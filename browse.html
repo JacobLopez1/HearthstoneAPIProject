@@ -7,7 +7,6 @@
     <link rel="icon" href="./assets/icon.png" />
     <title>Tavern's Guide</title>
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./index.js"></script>
   </head>
   <body>
     <div class="nav__bg">
@@ -52,67 +51,76 @@
     <div class="card__search--menu">
         <div class="row">
         <div class="filters">
-            <select id="filter-menu">
+            <select id="filter-menu" onchange="sortChange(event)">
                 <option value disabled selected>Sort By</option>
                 <option value="MANA_LOW_TO_HIGH">Mana: Low to High</option>
-                <option value="MANA_HIGH_TO_LOW">Mana: High to Low</option>
+                <option value="MA">Mana: High to Low</option>
                 <option value="NAME_A_TO_Z">Card Name: A to Z</option>
                 <option value="MANA_Z_TO_A">Card Name: Z to A</option>
             </select>
-            <ul class="mana-cost">
-                <li class="">Mana Cost</li>
-                <li class="mana-symbol">
-                    <img src="./assets/crystal.png" alt="" class="crystal__img">
-                    <h2 class="mana-num">0</h1>
-                </li>
-                <li class="mana-symbol">
-                    <img src="./assets/crystal.png" alt="" class="crystal__img">
-                    <h2 class="mana-num">1</h1>
-                </li>
-                <li class="mana-symbol">
-                    <img src="./assets/crystal.png" alt="" class="crystal__img">
-                    <h2 class="mana-num">2</h1>
-                </li>
-                <li class="mana-symbol">
-                    <img src="./assets/crystal.png" alt="" class="crystal__img">
-                    <h2 class="mana-num">3</h1>
-                </li>
-                <li class="mana-symbol">
-                    <img src="./assets/crystal.png" alt="" class="crystal__img">
-                    <h2 class="mana-num">4</h1>
-                </li>
-                <li class="mana-symbol">
-                    <img src="./assets/crystal.png" alt="" class="crystal__img">
-                    <h2 class="mana-num">5</h1>
-                </li>
-                <li class="mana-symbol">
-                    <img src="./assets/crystal.png" alt="" class="crystal__img">
-                    <h2 class="mana-num">6</h1>
-                </li>
-                <li class="mana-symbol">
-                    <img src="./assets/crystal.png" alt="" class="crystal__img">
-                    <h2 class="mana-num crystal-seven">7+</h1>
-                </li>
-            </ul>
-            <select id="class-menu" onchange="getClassCards(event)">
-                <option value selected>All Classes</option>
-                <option value="druid">Druid</option>
-                <option value="mage">Mage</option>
-                <option value="paladin">Paladin</option>
-                <option value="rogue">Rogue</option>
-                <option value="warlock">Warlock</option>
-                <option value="warrior">Warrior</option>
-                <option value="priest">Priest</option>
-                <option value="shaman">Shaman</option>
-                <option value="hunter">Hunter</option>
-                <option value="demon-hunter">Demon Hunter</option>
-                <option value="neutral">Neutral</option>
+            <select id="filter-menu" onchange="setChange(event)">
+                <option value="voyage-to-the-sunken-city" selected>Voyage to the Sunken City</option>
+                <option value="murder-at-castle-nathria">Murder at Castle Nathria</option>
+                <option value="fractured-in-alterac-valley">Fractured in Alterac Valley</option>
+                <option value="united-in-stormwind">United in Stormwind</option>
+                <option value="forged-in-the-barrens">Forged in the Barrens</option>
+            </select>
+            <select id="class-menu" onchange="classChange(event)">
+                <option value="NONE" selected>All Classes</option>
+                <option value="Druid">Druid</option>
+                <option value="Mage">Mage</option>
+                <option value="Paladin">Paladin</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Warlock">Warlock</option>
+                <option value="Warrior">Warrior</option>
+                <option value="Priest">Priest</option>
+                <option value="Shaman">Shaman</option>
+                <option value="Hunter">Hunter</option>
+                <option value="Demon Hunter">Demon Hunter</option>
+                <option value="Neutral">Neutral</option>
             </select>
         </div>
+        <ul class="mana-cost">
+            <li class="">Mana Cost</li>
+            <li class="mana-symbol" onclick="manaChange(0)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img">
+                <h2 class="mana-num">0</h1>
+            </li>
+            <li class="mana-symbol" onclick="manaChange(1)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img">
+                <h2 class="mana-num">1</h1>
+            </li>
+            <li class="mana-symbol" onclick="manaChange(2)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img">
+                <h2 class="mana-num">2</h1>
+            </li>
+            <li class="mana-symbol" onclick="manaChange(3)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img">
+                <h2 class="mana-num">3</h1>
+            </li>
+            <li class="mana-symbol" onclick="manaChange(4)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img">
+                <h2 class="mana-num">4</h1>
+            </li>
+            <li class="mana-symbol" onclick="manaChange(5)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img">
+                <h2 class="mana-num">5</h1>
+            </li>
+            <li class="mana-symbol" onclick="manaChange(6)">
+                <img src="./assets/crystal.png" alt="" class="crystal__img">
+                <h2 class="mana-num">6</h1>
+            </li>
+            <li class="mana-symbol" onclick="manaChange('seven-up')">
+                <img src="./assets/crystal.png" alt="" class="crystal__img">
+                <h2 class="mana-num crystal-seven">7+</h1>
+            </li>
+        </ul>
         </div>
     </div>
     <div class="divider"></div>
-    <div class="card__search--list"></div>
+    <div class="card__search--list">
+    </div>
+    <div class="divider"></div>
     <footer>
         <div class="row footer__row">
           <figure>
@@ -138,4 +146,5 @@
         </div>
       </footer>
   </body>
+  <script src="./index.js"></script>
 </html>
