@@ -7,6 +7,10 @@
     <link rel="icon" href="./assets/icon.png" />
     <title>Tavern's Guide</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://kit.fontawesome.com/b64b59d2ee.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="nav__bg">
@@ -20,12 +24,12 @@
           </figure>
           <ul class="nav__links">
             <li class="nav__link">
-              <a href="#" class="nav__link--anchor link__hover-effect"
+              <a href="#" class="nav__link--anchor link__hover-effect no-cursor"
                 >Random Card</a
               >
             </li>
             <li class="nav__link">
-              <a href="#" class="nav__link--anchor link__hover-effect"
+              <a href="#" class="nav__link--anchor link__hover-effect no-cursor"
                 >Random List</a
               >
             </li>
@@ -38,7 +42,7 @@
     </div>
     <div class="divider"></div>
     <header class="header">
-        <img class="header__img" src="./assets/background.jpg" alt="" />
+        <img class="header__img" src="./assets/search-bg.jpg" alt="" />
         <div class="header__content">
             <div class="card__search--container">
                 <label class="card__search--label">Search Cards</label>
@@ -66,7 +70,7 @@
                 <option value="forged-in-the-barrens">Forged in the Barrens</option>
                 <option value="core">Core Set</option>
             </select>
-            <select id="class-menu" onchange="classChange(event)">
+            <select id="filter-menu" onchange="classChange(event)">
                 <option value="NONE" selected>All Classes</option>
                 <option value="Druid">Druid</option>
                 <option value="Mage">Mage</option>
@@ -82,7 +86,7 @@
             </select>
         </div>
         <ul class="mana-cost">
-            <li class="">Mana Cost</li>
+            <li class="mana__title">Mana Cost</li>
             <li class="mana-symbol" onclick="manaChange(0), toggleActive(1)">
                 <img src="./assets/crystal.png" alt="" class="crystal__img not-active" id="1">
                 <h2 class="mana-num">0</h1>
@@ -123,6 +127,15 @@
         </div>
     </div>
     <div class="divider"></div>
+    <div class="not-loading loading-state">
+        <i class="fa-solid fa-spinner"></i>
+    </div>
+    <div class="not-loading no-results">
+        <h1>No results</h1>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <h3 class="no-results__sub">Try adjusting filters or reset here:</h3>
+        <a href="./browse.html"><button class="btn"><i class="fa-solid fa-arrows-rotate"></i></button></a>
+    </div>
     <div class="card__search--list">
     </div>
     <div class="divider"></div>

@@ -13,6 +13,8 @@ let activeClass = "NONE";
 let lastId = "*";
 let activeSearch = "NONE";
 const cardsWrapper = document.querySelector(".card__search--list");
+const loading = document.querySelector(".loading-state");
+const noResult = document.querySelector(".no-results");
 
 async function getCards() {
   // Get All collectible cards in the Set
@@ -24,11 +26,14 @@ async function getCards() {
     cards = await fetch(
       `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${activeSearch}`,
       options
-    ).catch(err => console.error(err), document.getElementById('search-bar').classList += ' not-active')
+    ).catch(
+      (err) => console.error(err),
+      noResult.classList.remove("not-loading"),
+      (loading.classList += " not-loading")
+    );
   }
   const cardsData = await cards.json();
   cardsDataCollectible = cardsData.filter((card) => card.collectible);
-  document.getElementById('search-bar').classList.remove('not-active')
 
   // Get Cards after Mana and Class Filters
   if (activeMana === "seven-up") {
@@ -64,7 +69,12 @@ async function getCards() {
 }
 
 async function renderCards() {
+  noResult.classList += " not-loading";
+  loading.classList.remove("not-loading");
+  cardsWrapper.classList += " not-loading";
   const activeCards = await getCards();
+  loading.classList += " not-loading";
+  cardsWrapper.classList.remove("not-loading");
   const cardSetHTML = activeCards.map((card) => cardHTML(card)).join("");
   cardsWrapper.innerHTML = cardSetHTML;
 }
@@ -80,32 +90,32 @@ function cardHTML(card) {
 }
 
 function classChange(event) {
-  activeSearch = 'NONE'
+  activeSearch = "NONE";
   activeClass = event.target.value;
   renderCards();
 }
 
 function sortChange(event) {
-  activeSearch = 'NONE'
+  activeSearch = "NONE";
   activeSort = event.target.value;
   renderCards();
 }
 
 function setChange(event) {
-  activeSearch = 'NONE'
+  activeSearch = "NONE";
   activeSet = event.target.value;
   renderCards();
 }
 
 function manaChange(mana) {
-  activeSearch = 'NONE'
+  activeSearch = "NONE";
   activeMana = mana;
   renderCards();
 }
 
 function searchChange(event) {
-    activeSearch = event.target.value
-    renderCards();
+  activeSearch = event.target.value;
+  renderCards();
 }
 
 function toggleActive(id) {
