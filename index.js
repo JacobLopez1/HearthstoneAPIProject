@@ -18,22 +18,27 @@ const noResult = document.querySelector(".no-results");
 
 async function getCards() {
   // Get All collectible cards in the Set
-  let cards = await fetch(
-    `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/sets/%7B${activeSet}%7D/`,
-    options
-  );
-  if (activeSearch != "NONE") {
-    cards = await fetch(
-      `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${activeSearch}`,
+  try {
+    let cards = await fetch(
+      `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/sets/%7B${activeSet}%7D/`,
       options
-    ).catch(
-      (err) => console.error(err),
-      noResult.classList.remove("not-loading"),
-      (loading.classList += " not-loading")
-    );
+      );
+      if (activeSearch != "NONE") {
+        cards = await fetch(
+          `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${activeSearch}`,
+          options
+          ).catch(
+            (err) => console.error(err)
+            );
+      }
+    const cardsData = await cards.json();
+    cardsDataCollectible = cardsData.filter((card) => card.collectible);
   }
-  const cardsData = await cards.json();
-  cardsDataCollectible = cardsData.filter((card) => card.collectible);
+  catch(err) {
+    noResult.classList.remove("not-loading")
+    (loading.classList += " not-loading")
+    console.error(err)
+  }
 
   // Get Cards after Mana and Class Filters
   if (activeMana === "seven-up") {
